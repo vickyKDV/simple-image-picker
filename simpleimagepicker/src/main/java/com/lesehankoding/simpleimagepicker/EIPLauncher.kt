@@ -69,6 +69,8 @@ fun showImagePickerOptions(
 	}
 	dialog.show()
 }
+
+
 private fun createImagePickerIntent(ctx: Context,isCamera:Boolean = true,config: EIPConfig = EIPConfig()): Intent {
 	val intent = Intent(ctx, EIPActivity::class.java)
 	intent.putExtra("isCamera", isCamera)
@@ -107,7 +109,9 @@ fun Fragment.registerEIP(
 private fun ComponentActivity.createLauncher(cb: EIPCallback): ActivityResultLauncher<Intent> {
 	return registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
 		val uri = it.data?.getParcelableExtra<Uri>("path")
-		uri?.let { it1 -> cb(it1) }
+		if(uri != null) {
+			cb(uri)
+		}
 	}
 }
 

@@ -1,6 +1,7 @@
 package com.lesehankoding.simpleimagepicker
 
 import android.*
+import android.app.*
 import android.content.*
 import android.graphics.*
 import android.net.*
@@ -8,7 +9,9 @@ import android.provider.*
 import android.util.*
 import android.widget.*
 import androidx.appcompat.app.*
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.*
+import androidx.core.content.ContextCompat.startActivity
 import com.lesehankoding.simpleimagepicker.EIPConstans.DEFAULT_ASPECT_RATIO_X
 import com.lesehankoding.simpleimagepicker.EIPConstans.DEFAULT_ASPECT_RATIO_Y
 import com.lesehankoding.simpleimagepicker.EIPConstans.DEFAULT_COMPRESSION_QTY
@@ -59,17 +62,23 @@ open class EIPBaseActivity:AppCompatActivity() {
 	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
 		super.onActivityResult(requestCode, resultCode, data)
 		if (resultCode == RESULT_OK && requestCode == UCrop.REQUEST_CROP) {
-			handleUCropResult(data)
+				handleUCropResult(data)
+		}else if(requestCode == UCrop.RESULT_ERROR){
+			resultCancel()
+		}else if(resultCode == RESULT_CANCELED){
+			finish()
 		}
 	}
+
+
 
 	fun handleUCropResult(data: Intent?) {
 		if (data == null) {
 			resultCancel()
-			return
+		}else {
+			val resultUri = UCrop.getOutput(data)
+			resultOK(resultUri)
 		}
-		val resultUri = UCrop.getOutput(data)
-		resultOK(resultUri)
 	}
 
 	fun resultOK(imagePath: Uri?) {
@@ -111,6 +120,7 @@ open class EIPBaseActivity:AppCompatActivity() {
 	}
 
 	fun launchCropImage(sourceUri: Uri?) {
+
 		val ratioX = intent.getIntExtra(
 				INTENT_ASPECT_RATIO_X,
 				DEFAULT_ASPECT_RATIO_X
@@ -146,7 +156,7 @@ open class EIPBaseActivity:AppCompatActivity() {
 
 		//sizing
 		options.setMaxBitmapSize(800)
-		options.setCompressionQuality(80)
+		options.setCompressionQuality(compressQTY)
 		if (isCropAspectRatio) options.withAspectRatio(
 				ratioX.toFloat(),
 				ratioY.toFloat()
@@ -158,6 +168,8 @@ open class EIPBaseActivity:AppCompatActivity() {
 		UCrop.of(sourceUri !!, destinationUri)
 			.withOptions(options)
 			.start(this)
+
+
 	}
 
 	fun showSettingsDialog(){

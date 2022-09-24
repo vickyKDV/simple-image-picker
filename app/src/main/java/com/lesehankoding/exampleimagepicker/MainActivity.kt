@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 				cropRatio = RATIO.WIDE
 		)
 		binding.fab.setOnClickListener { view ->
-			launcherEIP.launchCamera(config)
+			launcherEIP.launchDialog(config)
 		}
 	}
 
