@@ -31,8 +31,6 @@
 # 🎨Customization
 
 * Pick image using Gallery
-* 
-
   ```kotlin
   val launcherEIP = registerEIP {
   
@@ -43,7 +41,7 @@
     binding.img.setImageURI(Uri.parse(file.absolutePath))
    }
   ```
-  
+
 * for show dialog
   ```kotlin
   view.setOnClickListener { view ->
