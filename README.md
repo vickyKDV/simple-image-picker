@@ -27,7 +27,7 @@
    implementation 'com.github.vickykdv:simple-image-picker:TAG'
     ```
 
-# 🎨Customization
+# 🎨Simpe Usage
 
 * Pick image using Gallery
   ```kotlin
