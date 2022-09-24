@@ -9,9 +9,10 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://opensource.org/licenses/Apache-2.0)
 
 
-         Gallery Only      |       Camera Only        |
+         Gallery Only      |       Camera Only        |       Camera Only        |
 <img src="https://github.com/vickykdv/simple-image-picker/blob/master/picture/galery.jpeg" data-canonical-src="https://github.com/vickykdv/simple-image-picker/blob/master/picture/galery.jpeg" width="200" height="400" /> | 
 <img src="https://github.com/vickykdv/simple-image-picker/blob/master/picture/camera.jpeg" data-canonical-src="https://github.com/vickykdv/simple-image-picker/blob/master/picture/camera.jpeg" width="200" height="400" />
+<img src="https://github.com/vickykdv/simple-image-picker/blob/master/picture/crop.jpeg" data-canonical-src="https://github.com/vickykdv/simple-image-picker/blob/master/picture/crop.jpeg" width="200" height="400" />
 
 
 # 💻Usage
