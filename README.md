@@ -10,7 +10,6 @@
 
 
          Gallery Only      |       Camera Only        |
-:-------------------------:|:-------------------------:
 <img src="https://github.com/vickykdv/simple-image-picker/blob/master/picture/galery.jpeg" data-canonical-src="https://github.com/vickykdv/simple-image-picker/blob/master/picture/galery.jpeg" width="200" height="400" /> | 
 <img src="https://github.com/vickykdv/simple-image-picker/blob/master/picture/camera.jpeg" data-canonical-src="https://github.com/vickykdv/simple-image-picker/blob/master/picture/camera.jpeg" width="200" height="400" />
 
