@@ -54,7 +54,7 @@
   view.setOnClickListener { view ->
             launcherEIP.launchGalery()
   }
-* ```
+  ```
 
 * for camera only  
    ```kotlin
