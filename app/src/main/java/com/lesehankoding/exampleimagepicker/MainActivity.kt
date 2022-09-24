@@ -25,8 +25,12 @@ class MainActivity : AppCompatActivity() {
 		binding = ActivityMainBinding.inflate(layoutInflater)
 		setContentView(binding.root)
 
+		val config = EIPConfig(
+				isCropAspectRatio = true,
+				cropRatio = RATIO.WIDE
+		)
 		binding.fab.setOnClickListener { view ->
-			launcherEIP.launchDialog()
+			launcherEIP.launchCamera(config)
 		}
 	}
 
