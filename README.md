@@ -11,7 +11,8 @@
 
          Gallery Only      |       Camera Only        |
 :-------------------------:|:-------------------------:
-![](https://github.com/vickykdv/simple-image-picker/blob/master/picture/galery.jpeg)  |  ![](https://github.com/vickykdv/simple-image-picker/blob/master/picture/camera.jpeg) 
+<img src="https://github.com/vickykdv/simple-image-picker/blob/master/picture/galery.jpeg" data-canonical-src="https://github.com/vickykdv/simple-image-picker/blob/master/picture/galery.jpeg" width="200" height="400" />
+
 
 
 # 💻Usage
