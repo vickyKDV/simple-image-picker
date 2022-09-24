@@ -1,7 +1,6 @@
 package com.lesehankoding.simpleimagepicker
 
 import android.*
-import android.app.*
 import android.content.*
 import android.graphics.*
 import android.net.*
@@ -9,9 +8,7 @@ import android.provider.*
 import android.util.*
 import android.widget.*
 import androidx.appcompat.app.*
-import androidx.appcompat.app.AlertDialog
 import androidx.core.content.*
-import androidx.core.content.ContextCompat.startActivity
 import com.lesehankoding.simpleimagepicker.EIPConstans.DEFAULT_ASPECT_RATIO_X
 import com.lesehankoding.simpleimagepicker.EIPConstans.DEFAULT_ASPECT_RATIO_Y
 import com.lesehankoding.simpleimagepicker.EIPConstans.DEFAULT_COMPRESSION_QTY
@@ -23,13 +20,13 @@ import com.lesehankoding.simpleimagepicker.EIPConstans.INTENT_BITMAP_MAX_HEIGHT
 import com.lesehankoding.simpleimagepicker.EIPConstans.INTENT_BITMAP_MAX_WIDTH
 import com.lesehankoding.simpleimagepicker.EIPConstans.INTENT_IMAGE_COMPRESSION_QUALITY
 import com.lesehankoding.simpleimagepicker.EIPConstans.INTENT_LOCK_ASPECT_RATIO
+import com.lesehankoding.simpleimagepicker.EIPConstans.TITLE_TOOLBAR
+import com.lesehankoding.simpleimagepicker.EIPConstans.TOOLBAR_COLOR
+import com.lesehankoding.simpleimagepicker.EIPConstans.WIDGET_TOOLBAR_COLOR
 import com.nabinbhandari.android.permissions.*
-import com.nabinbhandari.android.permissions.Permissions.check
 import com.yalantis.ucrop.*
 import id.zelory.compressor.*
 import java.io.*
-import java.security.*
-import java.security.Permissions
 
 open class EIPBaseActivity:AppCompatActivity() {
 
@@ -59,12 +56,14 @@ open class EIPBaseActivity:AppCompatActivity() {
 	}
 
 	@Deprecated("Deprecated in Java")
-	override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-		super.onActivityResult(requestCode, resultCode, data)
-		if (resultCode == RESULT_OK && requestCode == UCrop.REQUEST_CROP) {
-				handleUCropResult(data)
-		}else if(requestCode == UCrop.RESULT_ERROR){
-			resultCancel()
+	override fun onActivityResult(requestCode: Int, resultCode: Int, result: Intent?) {
+		super.onActivityResult(requestCode, resultCode, result)
+		if (resultCode == RESULT_OK) {
+			if (requestCode == UCrop.REQUEST_CROP) {
+				handleUCropResult(result)
+			} else if (requestCode == UCrop.RESULT_ERROR) {
+				resultCancel()
+			}
 		}else if(resultCode == RESULT_CANCELED){
 			finish()
 		}
@@ -77,11 +76,11 @@ open class EIPBaseActivity:AppCompatActivity() {
 			resultCancel()
 		}else {
 			val resultUri = UCrop.getOutput(data)
-			resultOK(resultUri)
+			compressImage(resultUri)
 		}
 	}
 
-	fun resultOK(imagePath: Uri?) {
+	fun compressImage(imagePath: Uri?) {
 
 		val maxWidth = intent.getIntExtra(
 				INTENT_BITMAP_MAX_WIDTH,
@@ -115,6 +114,7 @@ open class EIPBaseActivity:AppCompatActivity() {
 			}
 		} catch (e: IOException) {
 			e.printStackTrace()
+			finish()
 			Log.d(EIPConstans.TAG, "setResultOk: " + e.message)
 		}
 	}
@@ -140,6 +140,20 @@ open class EIPBaseActivity:AppCompatActivity() {
 				true
 		)
 
+		val setTitleCrop = intent.getStringExtra(
+				TITLE_TOOLBAR
+		)
+
+		val setTitleColor = intent.getIntExtra(
+				WIDGET_TOOLBAR_COLOR,
+				com.yalantis.ucrop.R.color.ucrop_color_black
+		)
+
+		val setToolbarColor = intent.getIntExtra(
+				TOOLBAR_COLOR,
+				R.color.colorPrimaryEIP
+		)
+
 //		val isSetBitmapMaxWidthHeight = intent.getBooleanExtra(
 //				isSetBitmapMaxWidthHeight,
 //				true
@@ -150,9 +164,11 @@ open class EIPBaseActivity:AppCompatActivity() {
 		options.setCompressionQuality(compressQTY)
 
 		// applying UI theme
-		options.setToolbarColor(ContextCompat.getColor(this, R.color.colorPrimaryEIP))
+		options.setToolbarColor(ContextCompat.getColor(this, setToolbarColor))
 		options.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryEIP))
 		options.setActiveControlsWidgetColor(ContextCompat.getColor(this, R.color.colorPrimaryEIP))
+		options.setToolbarTitle(setTitleCrop ?: "Edit")
+		options.setToolbarWidgetColor(ContextCompat.getColor(this,setTitleColor))
 
 		//sizing
 		options.setMaxBitmapSize(800)

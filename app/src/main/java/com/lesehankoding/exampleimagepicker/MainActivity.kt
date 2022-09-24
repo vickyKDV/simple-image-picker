@@ -27,7 +27,10 @@ class MainActivity : AppCompatActivity() {
 
 		val config = EIPConfig(
 				isCropAspectRatio = true,
-				cropRatio = RATIO.WIDE
+				cropRatio = RATIO.WIDE,
+				setTitleCrop = "Crop Image",
+				setWidgetToolbarColor = R.color.white,
+				setToolbarColor = R.color.purple_200,
 		)
 		binding.fab.setOnClickListener { view ->
 			launcherEIP.launchDialog(config)

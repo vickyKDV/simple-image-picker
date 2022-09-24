@@ -3,6 +3,8 @@ package com.lesehankoding.simpleimagepicker
 import android.annotation.*
 import android.app.*
 import android.content.*
+import android.graphics.*
+import android.net.*
 import android.os.*
 import android.provider.*
 import android.util.*
@@ -10,6 +12,7 @@ import androidx.activity.result.contract.*
 import com.lesehankoding.simpleimagepicker.EIPConstans.TAG
 import com.lesehankoding.simpleimagepicker.EIPConstans.fileName
 import com.lesehankoding.simpleimagepicker.databinding.*
+import id.zelory.compressor.*
 import java.io.*
 
 
@@ -80,14 +83,16 @@ class EIPActivity: EIPBaseActivity() {
 			if(isCamera){
 				try {
 					Log.d(TAG, "launchGalery: $fileName")
-					launchCropImage(getCacheImagePath(fileName!!))
+					launchCropImage(getCacheImagePath(fileName !!))
 				}catch (e:FileNotFoundException){
 					Log.d(TAG, "launchGalery: ${e.printStackTrace()}")
 					showToast(e.message)
+					resultCancel()
 				}
 			}else {
 				val imageUri = result.data!!.data
 				launchCropImage(imageUri)
+
 			}
 		} else {
 			finish()

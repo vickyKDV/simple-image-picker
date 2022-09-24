@@ -75,6 +75,9 @@ private fun createImagePickerIntent(ctx: Context,isCamera:Boolean = true,config:
 	val intent = Intent(ctx, EIPActivity::class.java)
 	intent.putExtra("isCamera", isCamera)
 	intent.putExtra(EIPConstans.INTENT_LOCK_ASPECT_RATIO, config.isCropAspectRatio)
+	intent.putExtra(EIPConstans.TITLE_TOOLBAR, config.setTitleCrop)
+	intent.putExtra(EIPConstans.WIDGET_TOOLBAR_COLOR, config.setWidgetToolbarColor)
+	intent.putExtra(EIPConstans.TOOLBAR_COLOR, config.setToolbarColor)
 	if (config.cropRatio == RATIO.WIDE){
 		intent.putExtra(EIPConstans.INTENT_ASPECT_RATIO_X, 16) // 16x9, 1x1, 3:4, 3:2
 		intent.putExtra(EIPConstans.INTENT_ASPECT_RATIO_Y, 9)

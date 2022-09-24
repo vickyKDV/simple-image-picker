@@ -7,6 +7,9 @@ class EIPConfig (
 	var compressMaxWeight : Int = 680,
 	var compressMaxHeight : Int = 680,
 	var imageCompression : Int = 80,
+	var setTitleCrop : String = "Edit",
+	var setWidgetToolbarColor:Int = com.yalantis.ucrop.R.color.ucrop_color_black,
+	var setToolbarColor:Int = R.color.colorPrimaryEIP,
 )
 sealed class RATIO {
 	object DEFAULT : RATIO()

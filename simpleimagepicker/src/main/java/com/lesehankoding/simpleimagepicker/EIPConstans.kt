@@ -1,5 +1,8 @@
 package com.lesehankoding.simpleimagepicker
 
+import android.annotation.*
+import android.graphics.*
+
 
 object EIPConstans {
 	val TAG = "EIP-LOG"
@@ -7,6 +10,9 @@ object EIPConstans {
 	const val INTENT_ASPECT_RATIO_X = "aspect_ratio_x"
 	const val INTENT_ASPECT_RATIO_Y = "aspect_ratio_Y"
 	const val INTENT_LOCK_ASPECT_RATIO = "lock_aspect_ratio"
+	const val TITLE_TOOLBAR = "toolbar_crop_title"
+	const val WIDGET_TOOLBAR_COLOR = "widget_crop_color"
+	const val TOOLBAR_COLOR = "toolbar_crop_color"
 	const val INTENT_IMAGE_COMPRESSION_QUALITY = "compression_quality"
 	const val INTENT_SET_BITMAP_MAX_WIDTH_HEIGHT = "set_bitmap_max_width_height"
 	const val INTENT_BITMAP_MAX_WIDTH = "max_width"
@@ -17,6 +23,7 @@ object EIPConstans {
 	const val DEFAULT_MAX_WIDTH = 480
 	const val DEFAULT_MAX_HEIGHT = 480
 	const val DEFAULT_COMPRESSION_QTY = 480
+
 
 //	var islockAspectRatio : Boolean = true
 	const val isSetBitmapMaxWidthHeight = true
