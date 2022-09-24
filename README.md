@@ -9,6 +9,11 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=102)](https://opensource.org/licenses/Apache-2.0)
 
 
+         Gallery Only      |       Camera Only        |
+:-------------------------:|:-------------------------:
+![](https://github.com/vickykdv/simple-image-picker/blob/master/picture/galery.jpeg)  |  ![](https://github.com/vickykdv/simple-image-picker/blob/master/picture/camera.jpeg) 
+
+
 # 💻Usage
 
 
