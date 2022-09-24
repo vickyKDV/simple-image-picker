@@ -1,5 +1,6 @@
 # 📸 SIP (simple image picker)
 
+### Migration from [![Easy Image Picker](https://jitpack.io/v/vickyKDV/easyimagepicker.svg)](https://github.com/vickyKDV/EasyImagePicker)
 [![Download](https://jitpack.io/v/vickyKDV/simple-image-picker.svg)](https://jitpack.io/#vickyKDV/simple-image-picker)
 [![API](https://img.shields.io/badge/API-19%2B-brightgreen.svg?style=social)](https://android-arsenal.com/api?level=19)
 ![Language](https://img.shields.io/badge/language-Kotlin-orange.svg)
