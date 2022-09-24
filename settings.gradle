@@ -1,0 +1,24 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        //noinspection JcenterRepositoryObsolete
+        jcenter()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+        gradlePluginPortal()
+    }
+
+
+}
+rootProject.name = "ExampleImagePicker"
+include ':app'
+include ':simpleimagepicker'
