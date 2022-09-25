@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimaryEIP">#009964</color>
-    <color name="colorOutlineEIP">#8A8A8A</color>
+    <color name="SIPcolorPrimary">#673AB7</color>
+    <color name="SIPiconColor">#673AB7</color>
+    <color name="SIPcolorOutline">#8A8A8A</color>
+    <color name="SIPcolorBlack">#262626</color>
 </resources>

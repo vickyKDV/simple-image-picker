@@ -9,26 +9,26 @@ import android.util.*
 import android.widget.*
 import androidx.appcompat.app.*
 import androidx.core.content.*
-import com.lesehankoding.simpleimagepicker.EIPConstans.DEFAULT_ASPECT_RATIO_X
-import com.lesehankoding.simpleimagepicker.EIPConstans.DEFAULT_ASPECT_RATIO_Y
-import com.lesehankoding.simpleimagepicker.EIPConstans.DEFAULT_COMPRESSION_QTY
-import com.lesehankoding.simpleimagepicker.EIPConstans.DEFAULT_MAX_HEIGHT
-import com.lesehankoding.simpleimagepicker.EIPConstans.DEFAULT_MAX_WIDTH
-import com.lesehankoding.simpleimagepicker.EIPConstans.INTENT_ASPECT_RATIO_X
-import com.lesehankoding.simpleimagepicker.EIPConstans.INTENT_ASPECT_RATIO_Y
-import com.lesehankoding.simpleimagepicker.EIPConstans.INTENT_BITMAP_MAX_HEIGHT
-import com.lesehankoding.simpleimagepicker.EIPConstans.INTENT_BITMAP_MAX_WIDTH
-import com.lesehankoding.simpleimagepicker.EIPConstans.INTENT_IMAGE_COMPRESSION_QUALITY
-import com.lesehankoding.simpleimagepicker.EIPConstans.INTENT_LOCK_ASPECT_RATIO
-import com.lesehankoding.simpleimagepicker.EIPConstans.TITLE_TOOLBAR
-import com.lesehankoding.simpleimagepicker.EIPConstans.TOOLBAR_COLOR
-import com.lesehankoding.simpleimagepicker.EIPConstans.WIDGET_TOOLBAR_COLOR
+import com.lesehankoding.simpleimagepicker.SIPConstans.DEFAULT_ASPECT_RATIO_X
+import com.lesehankoding.simpleimagepicker.SIPConstans.DEFAULT_ASPECT_RATIO_Y
+import com.lesehankoding.simpleimagepicker.SIPConstans.DEFAULT_COMPRESSION_QTY
+import com.lesehankoding.simpleimagepicker.SIPConstans.DEFAULT_MAX_HEIGHT
+import com.lesehankoding.simpleimagepicker.SIPConstans.DEFAULT_MAX_WIDTH
+import com.lesehankoding.simpleimagepicker.SIPConstans.INTENT_ASPECT_RATIO_X
+import com.lesehankoding.simpleimagepicker.SIPConstans.INTENT_ASPECT_RATIO_Y
+import com.lesehankoding.simpleimagepicker.SIPConstans.INTENT_BITMAP_MAX_HEIGHT
+import com.lesehankoding.simpleimagepicker.SIPConstans.INTENT_BITMAP_MAX_WIDTH
+import com.lesehankoding.simpleimagepicker.SIPConstans.INTENT_IMAGE_COMPRESSION_QUALITY
+import com.lesehankoding.simpleimagepicker.SIPConstans.INTENT_LOCK_ASPECT_RATIO
+import com.lesehankoding.simpleimagepicker.SIPConstans.TITLE_TOOLBAR
+import com.lesehankoding.simpleimagepicker.SIPConstans.TOOLBAR_COLOR
+import com.lesehankoding.simpleimagepicker.SIPConstans.WIDGET_TOOLBAR_COLOR
 import com.nabinbhandari.android.permissions.*
 import com.yalantis.ucrop.*
 import id.zelory.compressor.*
 import java.io.*
 
-open class EIPBaseActivity:AppCompatActivity() {
+open class SIPBaseActivity:AppCompatActivity() {
 
 
 
@@ -37,7 +37,7 @@ open class EIPBaseActivity:AppCompatActivity() {
 		if (! path.exists()) path.mkdirs()
 		val image = File(path, fileName)
 		return FileProvider.getUriForFile(
-				this@EIPBaseActivity,
+				this@SIPBaseActivity,
 				"$packageName.provider",
 				image
 		)
@@ -105,7 +105,7 @@ open class EIPBaseActivity:AppCompatActivity() {
 				.setCompressFormat(Bitmap.CompressFormat.PNG)
 				.compressToFile(fileIMG)
 			if (newFileImageCompress != null) {
-				Log.d(EIPConstans.TAG, "onActivityResult: $newFileImageCompress")
+				Log.d(SIPConstans.TAG, "onActivityResult: $newFileImageCompress")
 				val uri = Uri.parse(newFileImageCompress.path)
 				val intent = Intent()
 				intent.putExtra("path", uri)
@@ -115,7 +115,7 @@ open class EIPBaseActivity:AppCompatActivity() {
 		} catch (e: IOException) {
 			e.printStackTrace()
 			finish()
-			Log.d(EIPConstans.TAG, "setResultOk: " + e.message)
+			Log.d(SIPConstans.TAG, "setResultOk: " + e.message)
 		}
 	}
 
@@ -151,7 +151,7 @@ open class EIPBaseActivity:AppCompatActivity() {
 
 		val setToolbarColor = intent.getIntExtra(
 				TOOLBAR_COLOR,
-				R.color.colorPrimaryEIP
+				R.color.SIPcolorPrimary
 		)
 
 //		val isSetBitmapMaxWidthHeight = intent.getBooleanExtra(
@@ -165,8 +165,8 @@ open class EIPBaseActivity:AppCompatActivity() {
 
 		// applying UI theme
 		options.setToolbarColor(ContextCompat.getColor(this, setToolbarColor))
-		options.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryEIP))
-		options.setActiveControlsWidgetColor(ContextCompat.getColor(this, R.color.colorPrimaryEIP))
+		options.setStatusBarColor(ContextCompat.getColor(this, R.color.SIPcolorPrimary))
+		options.setActiveControlsWidgetColor(ContextCompat.getColor(this, R.color.SIPcolorPrimary))
 		options.setToolbarTitle(setTitleCrop ?: "Edit")
 		options.setToolbarWidgetColor(ContextCompat.getColor(this,setTitleColor))
 
@@ -190,14 +190,14 @@ open class EIPBaseActivity:AppCompatActivity() {
 
 	fun showSettingsDialog(){
 		val builder = AlertDialog.Builder(this)
-		builder.setTitle(R.string.eip_allow_access_title)
-		builder.setMessage(R.string.eip_allow_access_description)
-		builder.setPositiveButton(R.string.eip_goto_setting) { dialog, _ ->
+		builder.setTitle(R.string.sip_allow_access_title)
+		builder.setMessage(R.string.sip_allow_access_description)
+		builder.setPositiveButton(R.string.sip_goto_setting) { dialog, _ ->
 			dialog.cancel()
 			openSettings()
 			finish()
 		}
-		builder.setNegativeButton(R.string.eip_cancel) { dialog, _ ->
+		builder.setNegativeButton(R.string.sip_cancel) { dialog, _ ->
 			dialog.cancel()
 			finish()
 		}

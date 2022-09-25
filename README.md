@@ -85,6 +85,12 @@
         launcherEIP.launchDialog(config)
    }
    ```
+  
+* replace change dialog icon color if u want
+  ```xml
+    <color name="SIPiconColor">#673AB7</color>
+   ```
+
 
 
 ## 📃 Thx for library

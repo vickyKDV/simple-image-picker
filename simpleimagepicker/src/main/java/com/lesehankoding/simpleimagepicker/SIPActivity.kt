@@ -3,22 +3,19 @@ package com.lesehankoding.simpleimagepicker
 import android.annotation.*
 import android.app.*
 import android.content.*
-import android.graphics.*
-import android.net.*
 import android.os.*
 import android.provider.*
 import android.util.*
 import androidx.activity.result.contract.*
-import com.lesehankoding.simpleimagepicker.EIPConstans.TAG
-import com.lesehankoding.simpleimagepicker.EIPConstans.fileName
+import com.lesehankoding.simpleimagepicker.SIPConstans.TAG
+import com.lesehankoding.simpleimagepicker.SIPConstans.fileName
 import com.lesehankoding.simpleimagepicker.databinding.*
-import id.zelory.compressor.*
 import java.io.*
 
 
-class EIPActivity: EIPBaseActivity() {
+class SIPActivity: SIPBaseActivity() {
 
-	private lateinit var binding: EasyimagepickerActivityXyzBinding
+	private lateinit var binding: SipActivityBinding
 
 
 
@@ -31,7 +28,7 @@ class EIPActivity: EIPBaseActivity() {
 			finish()
 			return
 		}
-		binding = EasyimagepickerActivityXyzBinding.inflate(layoutInflater)
+		binding = SipActivityBinding.inflate(layoutInflater)
 		setContentView(binding.root)
 		clearCache(this)
 		checkPersmission{
@@ -51,7 +48,7 @@ class EIPActivity: EIPBaseActivity() {
 		val isCamera = intent.getBooleanExtra("isCamera",true)
 		val i : Intent
 		if(isCamera) {
-			if (! DeviceHelper.checkCameraAvailability(this)) {
+			if (! SIPDeviceHelper.checkCameraAvailability(this)) {
 				finish()
 				return
 			}
@@ -63,7 +60,7 @@ class EIPActivity: EIPBaseActivity() {
 						getCacheImagePath(fileName !!)
 				)
 				if (i.resolveActivity(packageManager) == null) {
-					showToast(getString(R.string.eip_denied_access_message))
+					showToast(getString(R.string.sip_denied_access_message))
 					return
 				}
 

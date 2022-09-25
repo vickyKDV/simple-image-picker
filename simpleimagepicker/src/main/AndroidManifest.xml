@@ -10,7 +10,7 @@
     <application
         android:requestLegacyExternalStorage="true"
         android:screenOrientation="portrait">
-        <activity android:name=".EIPActivity" />
+        <activity android:name=".SIPActivity" />
 
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"

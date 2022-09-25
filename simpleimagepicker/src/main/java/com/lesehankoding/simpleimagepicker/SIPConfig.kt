@@ -1,5 +1,7 @@
 package com.lesehankoding.simpleimagepicker
 
+import androidx.core.content.*
+
 
 class EIPConfig (
 	var isCropAspectRatio : Boolean = true,
@@ -9,7 +11,8 @@ class EIPConfig (
 	var imageCompression : Int = 80,
 	var setTitleCrop : String = "Edit",
 	var setWidgetToolbarColor:Int = com.yalantis.ucrop.R.color.ucrop_color_black,
-	var setToolbarColor:Int = R.color.colorPrimaryEIP,
+	var setToolbarColor:Int = R.color.SIPcolorPrimary,
+	var titleDialog: Int = R.string.sip_choice_selected
 )
 sealed class RATIO {
 	object DEFAULT : RATIO()

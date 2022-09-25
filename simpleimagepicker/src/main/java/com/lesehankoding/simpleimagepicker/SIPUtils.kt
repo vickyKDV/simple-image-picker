@@ -1,6 +1,6 @@
 package com.lesehankoding.simpleimagepicker
 
-object EIPUtils {
+object SIPUtils {
 //	fun getCacheImagePath(ctx: Context, fileName: String?): Uri {
 //		val path = File(ctx.externalCacheDir, "camera")
 //		if (! path.exists()) path.mkdirs()

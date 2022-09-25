@@ -25,16 +25,17 @@
             android:orientation="horizontal">
 
             <TextView
+                android:textColor="@color/SIPcolorBlack"
                 android:layout_weight="1"
-                android:id="@+id/textView"
+                android:id="@+id/txtTitleDialog"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="@string/eip_choice_selected"
-                android:textColor="#000000"
+                android:text="@string/sip_choice_selected"
                 android:textSize="18sp" />
 
             <TextView
+                android:textColor="@color/SIPcolorBlack"
                 android:padding="8dp"
                 android:layout_marginStart="25dp"
                 android:id="@+id/txtClose"
@@ -73,12 +74,13 @@
                     tools:targetApi="m" />
 
                 <TextView
+                    android:textColor="@color/SIPcolorBlack"
                     android:id="@+id/txtCamera"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:text="@string/eip_camera" />
+                    android:text="@string/sip_camera" />
             </LinearLayout>
 
             <LinearLayout
@@ -104,12 +106,13 @@
                     app:srcCompat="@drawable/imgeasyimage"/>
 
                 <TextView
+                    android:textColor="@color/SIPcolorBlack"
                     android:id="@+id/txtGalery"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:text="@string/eip_galery" />
+                    android:text="@string/sip_galery" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 

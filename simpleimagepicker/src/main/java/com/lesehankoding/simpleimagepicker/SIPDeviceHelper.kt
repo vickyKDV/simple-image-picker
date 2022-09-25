@@ -6,7 +6,7 @@ import android.content.Intent
 import android.provider.MediaStore
 import android.widget.Toast
 
-object DeviceHelper {
+object SIPDeviceHelper {
 
     @SuppressLint("QueryPermissionsNeeded")
     fun checkCameraAvailability(context: Context): Boolean {
@@ -16,7 +16,7 @@ object DeviceHelper {
             val appContext = context.applicationContext
             Toast.makeText(
                 appContext,
-                appContext.getString(R.string.eip_no_camera_ready),
+                appContext.getString(R.string.sip_no_camera_ready),
                 Toast.LENGTH_LONG
             ).show()
         }

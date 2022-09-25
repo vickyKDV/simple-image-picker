@@ -7,6 +7,7 @@ import android.widget.*
 import androidx.activity.*
 import androidx.activity.result.*
 import androidx.activity.result.contract.*
+import androidx.core.content.*
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.*
 
@@ -45,15 +46,18 @@ fun showImagePickerOptions(
 	config: EIPConfig,
 	resultLauncher: ActivityResultLauncher<Intent>
 ) {
-	val dialog = BottomSheetDialog(context(), R.style.BottomSheetDialogTheme)
+	val dialog = BottomSheetDialog(context(), R.style.SIPBottomSheetDialogTheme)
 	val view = LayoutInflater.from(context()).inflate(
-			R.layout.bottomdlg_easyimagepicker, dialog.findViewById<View>(
+			R.layout.sip_bottomdlg, dialog.findViewById<View>(
 			R.id.lnroot
 	) as LinearLayout?
 	)
 	dialog.setContentView(view)
 	view.findViewById<TextView>(R.id.txtClose).setOnClickListener {
 		dialog.dismiss()
+	}
+	view.findViewById<TextView>(R.id.txtTitleDialog).apply {
+		this.setText(config.titleDialog)
 	}
 	val cameraSelected = view.findViewById<ImageButton>(R.id.btnCamera)
 	val galerySelected = view.findViewById<ImageButton>(R.id.btnImage)
@@ -72,25 +76,25 @@ fun showImagePickerOptions(
 
 
 private fun createImagePickerIntent(ctx: Context,isCamera:Boolean = true,config: EIPConfig = EIPConfig()): Intent {
-	val intent = Intent(ctx, EIPActivity::class.java)
+	val intent = Intent(ctx, SIPActivity::class.java)
 	intent.putExtra("isCamera", isCamera)
-	intent.putExtra(EIPConstans.INTENT_LOCK_ASPECT_RATIO, config.isCropAspectRatio)
-	intent.putExtra(EIPConstans.TITLE_TOOLBAR, config.setTitleCrop)
-	intent.putExtra(EIPConstans.WIDGET_TOOLBAR_COLOR, config.setWidgetToolbarColor)
-	intent.putExtra(EIPConstans.TOOLBAR_COLOR, config.setToolbarColor)
+	intent.putExtra(SIPConstans.INTENT_LOCK_ASPECT_RATIO, config.isCropAspectRatio)
+	intent.putExtra(SIPConstans.TITLE_TOOLBAR, config.setTitleCrop)
+	intent.putExtra(SIPConstans.WIDGET_TOOLBAR_COLOR, config.setWidgetToolbarColor)
+	intent.putExtra(SIPConstans.TOOLBAR_COLOR, config.setToolbarColor)
 	if (config.cropRatio == RATIO.WIDE){
-		intent.putExtra(EIPConstans.INTENT_ASPECT_RATIO_X, 16) // 16x9, 1x1, 3:4, 3:2
-		intent.putExtra(EIPConstans.INTENT_ASPECT_RATIO_Y, 9)
+		intent.putExtra(SIPConstans.INTENT_ASPECT_RATIO_X, 16) // 16x9, 1x1, 3:4, 3:2
+		intent.putExtra(SIPConstans.INTENT_ASPECT_RATIO_Y, 9)
 	}else{
-		intent.putExtra(EIPConstans.INTENT_ASPECT_RATIO_X, 1) // 16x9, 1x1, 3:4, 3:2
-		intent.putExtra(EIPConstans.INTENT_ASPECT_RATIO_Y, 1)
+		intent.putExtra(SIPConstans.INTENT_ASPECT_RATIO_X, 1) // 16x9, 1x1, 3:4, 3:2
+		intent.putExtra(SIPConstans.INTENT_ASPECT_RATIO_Y, 1)
 	}
-	intent.putExtra(EIPConstans.INTENT_IMAGE_COMPRESSION_QUALITY, config.imageCompression)
+	intent.putExtra(SIPConstans.INTENT_IMAGE_COMPRESSION_QUALITY, config.imageCompression)
 
 	// setting maximum bitmap width and height
 //	intent.putExtra(EIPConstans.INTENT_SET_BITMAP_MAX_WIDTH_HEIGHT, true)
-	intent.putExtra(EIPConstans.INTENT_BITMAP_MAX_WIDTH, config.compressMaxWeight)
-	intent.putExtra(EIPConstans.INTENT_BITMAP_MAX_HEIGHT, config.compressMaxHeight)
+	intent.putExtra(SIPConstans.INTENT_BITMAP_MAX_WIDTH, config.compressMaxWeight)
+	intent.putExtra(SIPConstans.INTENT_BITMAP_MAX_HEIGHT, config.compressMaxHeight)
 	return intent
 }
 

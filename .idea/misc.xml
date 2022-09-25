@@ -7,9 +7,13 @@
         <entry key="app/src/main/res/layout/content_main.xml" value="0.384375" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.384375" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.384375" />
+        <entry key="simpleimagepicker/src/main/res/drawable/bg_circle_eip.xml" value="0.2255" />
+        <entry key="simpleimagepicker/src/main/res/drawable/bottomsheet_easyimagepicker.xml" value="0.2115" />
+        <entry key="simpleimagepicker/src/main/res/drawable/imgeasycamera.xml" value="0.2255" />
         <entry key="simpleimagepicker/src/main/res/drawable/imgeasyimage.xml" value="0.2255" />
         <entry key="simpleimagepicker/src/main/res/layout/bottomdlg_easyimagepicker.xml" value="0.384375" />
         <entry key="simpleimagepicker/src/main/res/layout/easyimagepicker_activity_xyz.xml" value="0.384375" />
+        <entry key="simpleimagepicker/src/main/res/layout/sip_bottomdlg.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
