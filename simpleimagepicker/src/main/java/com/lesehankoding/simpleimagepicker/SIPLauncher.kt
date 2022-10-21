@@ -18,16 +18,16 @@ class EIPLauncher(
 	private val context: () -> Context,
 	private val resultLauncher: ActivityResultLauncher<Intent>
 ) {
-	fun launchDialog(config: EIPConfig = EIPConfig()) {
+	fun launchDialog(config: SIPConfig = SIPConfig()) {
 		showImagePickerOptions(context,config, resultLauncher)
 	}
 
-	fun launchGalery(config: EIPConfig = EIPConfig()) {
+	fun launchGalery(config: SIPConfig = SIPConfig()) {
 		val intent = createImagePickerIntent(context(),false,config)
 		resultLauncher.launch(intent)
 	}
 
-	fun launchCamera(config: EIPConfig = EIPConfig()) {
+	fun launchCamera(config: SIPConfig = SIPConfig()) {
 		val intent = createImagePickerIntent(context(),true, config )
 		resultLauncher.launch(intent)
 	}
@@ -43,7 +43,7 @@ class EIPLauncher(
 
 fun showImagePickerOptions(
 	context: () -> Context,
-	config: EIPConfig,
+	config: SIPConfig,
 	resultLauncher: ActivityResultLauncher<Intent>
 ) {
 	val dialog = BottomSheetDialog(context(), R.style.SIPBottomSheetDialogTheme)
@@ -75,7 +75,7 @@ fun showImagePickerOptions(
 }
 
 
-private fun createImagePickerIntent(ctx: Context,isCamera:Boolean = true,config: EIPConfig = EIPConfig()): Intent {
+private fun createImagePickerIntent(ctx: Context,isCamera:Boolean = true,config: SIPConfig = SIPConfig()): Intent {
 	val intent = Intent(ctx, SIPActivity::class.java)
 	intent.putExtra("isCamera", isCamera)
 	intent.putExtra(SIPConstans.INTENT_LOCK_ASPECT_RATIO, config.isCropAspectRatio)

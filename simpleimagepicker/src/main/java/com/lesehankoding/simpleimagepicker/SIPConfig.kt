@@ -3,7 +3,7 @@ package com.lesehankoding.simpleimagepicker
 import androidx.core.content.*
 
 
-class EIPConfig (
+class SIPConfig (
 	var isCropAspectRatio : Boolean = true,
 	var cropRatio: RATIO = RATIO.DEFAULT,
 	var compressMaxWeight : Int = 680,
